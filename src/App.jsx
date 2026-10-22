@@ -14,7 +14,9 @@ import NotFound from "./pages/NotFound/NotFound";
 // Lazy load heavy components for code splitting
 const CoursePlayer = lazy(() => import("./pages/CoursePlayer/CoursePlayer"));
 const StudentDashboard = lazy(() => import("./pages/student/StudentDashboard"));
-const AdminDashboard = lazy(() => import("./pages/admin/components/AdminDashboard"));
+const AdminDashboard = lazy(
+  () => import("./pages/admin/components/AdminDashboard"),
+);
 const AdminOverview = lazy(() => import("./pages/admin/pages/AdminOverview"));
 const ManageCourses = lazy(() => import("./pages/admin/pages/ManageCourses"));
 const Enrollments = lazy(() => import("./pages/admin/pages/Enrollments"));
@@ -81,15 +83,78 @@ export default function App() {
             }
           >
             {/* nested admin pages */}
-            <Route index element={<Suspense fallback={<LoadingSpinner />}><AdminOverview /></Suspense>} />
-            <Route path="courses" element={<Suspense fallback={<LoadingSpinner />}><ManageCourses /></Suspense>} />
-            <Route path="courses/edit/:id" element={<Suspense fallback={<LoadingSpinner />}><EditCourse /></Suspense>} />
-            <Route path="courses/create" element={<Suspense fallback={<LoadingSpinner />}><CreateCourse /></Suspense>} />
-            <Route path="video-classes" element={<Suspense fallback={<LoadingSpinner />}><VideoClasses /></Suspense>} />
-            <Route path="enrollments" element={<Suspense fallback={<LoadingSpinner />}><Enrollments /></Suspense>} />
-            <Route path="assignments" element={<Suspense fallback={<LoadingSpinner />}><Assignments /></Suspense>} />
-            <Route path="analytics" element={<Suspense fallback={<LoadingSpinner />}><Analytics /></Suspense>} />
-            <Route path="users" element={<Suspense fallback={<LoadingSpinner />}><ManageUsers /></Suspense>} />
+            <Route
+              index
+              element={
+                <Suspense fallback={<LoadingSpinner />}>
+                  <AdminOverview />
+                </Suspense>
+              }
+            />
+            <Route
+              path="courses"
+              element={
+                <Suspense fallback={<LoadingSpinner />}>
+                  <ManageCourses />
+                </Suspense>
+              }
+            />
+            <Route
+              path="courses/edit/:id"
+              element={
+                <Suspense fallback={<LoadingSpinner />}>
+                  <EditCourse />
+                </Suspense>
+              }
+            />
+            <Route
+              path="courses/create"
+              element={
+                <Suspense fallback={<LoadingSpinner />}>
+                  <CreateCourse />
+                </Suspense>
+              }
+            />
+            <Route
+              path="video-classes"
+              element={
+                <Suspense fallback={<LoadingSpinner />}>
+                  <VideoClasses />
+                </Suspense>
+              }
+            />
+            <Route
+              path="enrollments"
+              element={
+                <Suspense fallback={<LoadingSpinner />}>
+                  <Enrollments />
+                </Suspense>
+              }
+            />
+            <Route
+              path="assignments"
+              element={
+                <Suspense fallback={<LoadingSpinner />}>
+                  <Assignments />
+                </Suspense>
+              }
+            />
+            <Route
+              path="analytics"
+              element={
+                <Suspense fallback={<LoadingSpinner />}>
+                  <Analytics />
+                </Suspense>
+              }
+            />
+            <Route
+              path="users"
+              element={
+                <Suspense fallback={<LoadingSpinner />}>
+                  <ManageUsers />
+                </Suspense>
+              }
+            />
           </Route>
 
           {/* 404 */}

@@ -11,10 +11,11 @@ api.interceptors.request.use(
     const token = getToken();
     if (token) {
       config.headers.Authorization = token;
+      // config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
   },
-  (error) => Promise.reject(error)
+  (error) => Promise.reject(error),
 );
 
 // Response interceptor - handle errors globally
@@ -27,7 +28,7 @@ api.interceptors.response.use(
       window.location.href = "/login";
     }
     return Promise.reject(error);
-  }
+  },
 );
 
 export default api;

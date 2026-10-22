@@ -39,7 +39,7 @@ export default function Login() {
       saveToken(res.data.token);
 
       navigate("/");
-      window.location.reload();
+      // window.location.reload();
     } catch (err) {
       setError(
         err.response?.data?.message ||
@@ -112,12 +112,12 @@ export default function Login() {
                   type="button"
                   onClick={() => {
                     const token =
-                      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhYzFmMzdlNjYwMDZmMWRjYmI1YjUyNiIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzkxMDk4NTg4fQ.4s3Ygh9GtTper2SB8byNILxPSxZ8y3pO-WyFupmQ0Ws";
+                      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZGExYmM1MjkwZTU1ZTFlYmVjOTczYyIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzkyNjgxNjk3LCJleHAiOjE3OTUyNzM2OTd9.OGl0sic66ZMDvfcl3o6Uw_gxDuxtJWIqbs3poKBBGmU";
                     localStorage.setItem("token", token);
                     localStorage.setItem("user_token", token);
                     localStorage.setItem("dev_bypass", "true");
                     navigate("/student");
-                    window.location.reload();
+                    // window.location.reload();
                   }}
                   className="btn btn-xs btn-primary font-bold text-xs"
                 >
@@ -127,12 +127,12 @@ export default function Login() {
                   type="button"
                   onClick={() => {
                     const token =
-                      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhYzFmMzdlNjYwMDZmMWRjYmI1YjUyNSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc5MTA5ODU4OH0.vL3Hj-fEGVbouM-cZ9RtMIpaCU5ugRwsNqaKyYdxdNY";
+                      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZGExYmM1MjkwZTU1ZTFlYmVjOTczYSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc5MjY4MTQxNywiZXhwIjoxNzk1MjczNDE3fQ.VwSz9SYx041eyUd4XjYCblAQw2tbmI9iSNYSDAQxscc";
                     localStorage.setItem("token", token);
                     localStorage.setItem("user_token", token);
                     localStorage.setItem("dev_bypass", "true");
                     navigate("/admin");
-                    window.location.reload();
+                    // window.location.reload();
                   }}
                   className="btn btn-xs btn-secondary font-bold text-xs"
                 >

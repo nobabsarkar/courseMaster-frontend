@@ -10,41 +10,40 @@ import AdminSidebar from "./AdminSidebar";
 // import AdminRoute from "../../routes/AdminRoute";
 
 export default function AdminDashboard() {
-    const [me, setMe] = useState(null);
+  const [me, setMe] = useState(null);
 
-    useEffect(() => {
-        const loadMe = async () => {
-            try {
-                const res = await getMe();
-                setMe(res.data);
-            } catch (err) {
-                console.error("Failed to load user:", err);
-            }
-        };
-        loadMe();
-    }, []);
+  useEffect(() => {
+    const loadMe = async () => {
+      try {
+        const res = await getMe();
+        console.log(res);
+        setMe(res.data);
+      } catch (err) {
+        console.error("Failed to load user:", err);
+      }
+    };
+    loadMe();
+  }, []);
 
-    return (
-        <AdminRoute me={me}>
-            {/* full width override */}
-            <div className="w-full max-w-none flex flex-col lg:flex-row min-h-[80vh]">
+  return (
+    <AdminRoute me={me}>
+      {/* full width override */}
+      <div className="w-full max-w-none flex flex-col lg:flex-row min-h-[80vh]">
+        {/* sidebar - hidden on mobile, shown via drawer */}
+        <div className="hidden lg:block shrink-0">
+          <AdminSidebar />
+        </div>
 
-                {/* sidebar - hidden on mobile, shown via drawer */}
-                <div className="hidden lg:block shrink-0">
-                    <AdminSidebar />
-                </div>
+        {/* Mobile drawer toggle button */}
+        <div className="lg:hidden">
+          <AdminSidebar />
+        </div>
 
-                {/* Mobile drawer toggle button */}
-                <div className="lg:hidden">
-                    <AdminSidebar />
-                </div>
-
-                {/* content area */}
-                <main className="flex-1 p-2 sm:p-4 lg:p-5 bg-base-100 w-full">
-                    <Outlet />
-                </main>
-
-            </div>
-        </AdminRoute>
-    );
+        {/* content area */}
+        <main className="flex-1 p-2 sm:p-4 lg:p-5 bg-base-100 w-full">
+          <Outlet />
+        </main>
+      </div>
+    </AdminRoute>
+  );
 }
