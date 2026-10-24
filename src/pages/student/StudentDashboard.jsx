@@ -462,7 +462,7 @@ export default function StudentDashboard() {
                                 <p className="text-2xl sm:text-3xl font-bold">
                                   {(() => {
                                     const quizAvg =
-                                      stats.quizStats?.average ?? 12;
+                                      stats.quizStats?.average ?? 0;
                                     const assignAvg =
                                       stats.assignmentStats?.average ?? 0;
                                     const quizCount =

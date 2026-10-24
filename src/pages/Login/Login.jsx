@@ -36,7 +36,7 @@ export default function Login() {
 
       const res = await loginUser(form);
 
-      saveToken(res.data.token);
+      saveToken(res?.data?.token);
 
       navigate("/");
       // window.location.reload();

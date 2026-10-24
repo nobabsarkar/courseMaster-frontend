@@ -16,7 +16,7 @@ export default function AdminDashboard() {
     const loadMe = async () => {
       try {
         const res = await getMe();
-        console.log(res);
+
         setMe(res.data);
       } catch (err) {
         console.error("Failed to load user:", err);
